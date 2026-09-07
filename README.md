@@ -61,6 +61,6 @@ Environment Variables:
 
 Ensure DEBUG is set to False in production.
 
-Configure ALLOWED_HOSTS and CSRF_TRUSTED_ORIGINS to match your Render domain (https://<your-app-name>.onrender.com).
+Configure ALLOWED_HOSTS and CSRF_TRUSTED_ORIGINS to match your Render domain (https://student-blog-02.onrender.com).
 
 Media and Static Files: The URL configuration uses manual production serving via django.views.static.serve to ensure uploaded PDFs and static assets load correctly when DEBUG = False.
