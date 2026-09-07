@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Upload Study Material</title>
+  </head>
+  <style>
+    * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f1f1f1;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 6px;
+        max-width: 600px;
+        margin: auto;
+      }
+
+      input[type="text"],
+      input[type="url"],
+      textarea,
+      input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 15px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      a {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
+  </style>
+  <body>
+    <h2>Upload Study Material / Note</h2>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <p>
+        <label>Title / Course Name:</label><br />
+        <input
+          type="text"
+          name="title"
+          required
+          placeholder="e.g., CSE101 - Midterm Notes"
+        />
+      </p>
+      <p>
+        <label>Description:</label><br />
+        <textarea
+          name="body"
+          rows="5"
+          cols="40"
+          required
+          placeholder="Describe these notes..."
+        ></textarea>
+      </p>
+      <p>
+        <label>Attach File (PDF or Word Document):</label><br />
+        <input type="file" name="pdf_file" accept=".pdf,.doc,.docx" />
+      </p>
+      <p>
+        <label>Google Drive Link:</label><br />
+        <input
+          type="url"
+          name="driver_link"
+          placeholder="https://drive.google.com/..."
+        />
+      </p>
+      <p>
+        <label>Other Document Link:</label><br />
+        <input type="url" name="document_link" placeholder="https://..." />
+      </p>
+      <button type="submit">Publish Notes</button>
+    </form>
+    <br />
+    <a style="text-decoration: none; color: #007bff;" href="{% url 'index' %}">Back to Home</a>
+  </body>
+</html>
